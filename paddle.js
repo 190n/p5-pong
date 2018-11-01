@@ -24,10 +24,12 @@ class Paddle {
     tick() {
         if (this.forPlayer) {
             // keyboard input
-            if (keyIsDown(UP_ARROW)) {
+            // 87 = W, 65 = A, 83 = S, 90 = Z
+            // use up/down arrows, W/S, or A/Z
+            if (keyIsDown(UP_ARROW) || keyIsDown(87) || keyIsDown(65)) {
                 this.y -= 5;
             }
-            if (keyIsDown(DOWN_ARROW)) {
+            if (keyIsDown(DOWN_ARROW) || keyIsDown(83) || keyIsDown(90)) {
                 this.y += 5;
             }
         } else if (ball.dx > 0) { // AI only moves if ball is moving towards it
@@ -37,7 +39,7 @@ class Paddle {
             // when the ball is far from the paddle, it is much greater than even the paddle's height
             // this allows the AI to miss
 
-            let tolerance = 8 * sqrt(abs(this.x - ball.x));
+            let tolerance = 8 * sqrt(max(0, abs(this.x - ball.x) - 50));
 
             // fill('rgba(255, 0, 0, 0.3)');
             // rect(0, this.y - tolerance, 900, tolerance * 2);
