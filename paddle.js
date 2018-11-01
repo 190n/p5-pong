@@ -37,12 +37,10 @@ class Paddle {
             // when the ball is far from the paddle, it is much greater than even the paddle's height
             // this allows the AI to miss
 
-            let tolerance;
-            if (ball.x > 700) tolerance = 5;
-            else tolerance = 100;
+            let tolerance = 8 * sqrt(abs(this.x - ball.x));
 
-            fill('rgba(255, 0, 0, 0.3)');
-            rect(0, this.y - tolerance, 900, tolerance * 2);
+            // fill('rgba(255, 0, 0, 0.3)');
+            // rect(0, this.y - tolerance, 900, tolerance * 2);
 
 
             if (abs(this.y - ball.y) > tolerance) {
