@@ -1,7 +1,13 @@
 let gameObjects = [],
     playerPaddle,
     aiPaddle,
-    ball;
+    ball,
+    sfxBounce;
+
+function preload() {
+    soundFormats('wav');
+    sfxBounce = loadSound('bounce.wav');
+}
 
 function setup() {
     playerPaddle = new Paddle(true);

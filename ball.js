@@ -53,6 +53,8 @@ class Ball {
     }
 
     bounceOffPaddle(which) {
+        sfxBounce.play();
+
         // reverse direction and randomly choose new y velocity
         this.dx = -this.dx;
         this.dy = random(-6, 6);
