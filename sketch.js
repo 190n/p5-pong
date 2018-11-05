@@ -5,7 +5,6 @@ let gameObjects = [],
     sfxBounce;
 
 function preload() {
-    soundFormats('wav');
     sfxBounce = loadSound('bounce.wav');
 }
 
